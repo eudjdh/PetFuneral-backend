@@ -6,14 +6,15 @@ spring:
     password: 123456
 
 mybatis-plus:
-  configuration:
+  configuration:                 # MyBatis-Plus 原生配置
     map-underscore-to-camel-case: true
-  global-config:
+  global-config:                 # 全局配置（注意层级对齐）
     db-config:
       id-type: auto
-      logic-delete-value: 1
-      logic-not-delete-value: 0
+      logic-delete-field: deleted  # 逻辑删除字段名（需在表中存在）
+      logic-delete-value: 1       # 已删除标记值
+      logic-not-delete-value: 0   # 未删除标记值
 
-jwt:
-  secret: "8/PIgKIm4uQUpSGNJ7eOYLVhHIme4COVZyY+By+WE7I="  # 256位密钥
-  expiration-millis: 86400000  # 一天
+jwt:                            # 自定义 JWT 配置（需配合 @ConfigurationProperties 使用）
+  secret: "8/PIgKIm4uQUpSGNJ7eOYLVhHIme4COVZyY+By+WE7I="
+  expiration-millis: 86400000    # 过期时间（毫秒）
