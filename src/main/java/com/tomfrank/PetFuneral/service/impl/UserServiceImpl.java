@@ -7,7 +7,6 @@ import com.tomfrank.PetFuneral.exception.BusinessException;
 import com.tomfrank.PetFuneral.mapper.UserMapper;
 import com.tomfrank.PetFuneral.service.UserService;
 import com.tomfrank.PetFuneral.util.JwtUtil;
-import com.tomfrank.PetFuneral.util.PasswordEncoderUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.BeanUtils;
@@ -33,9 +32,7 @@ public class UserServiceImpl implements UserService {
 
         User u = new User();
         BeanUtils.copyProperties(req, u);
-        // 对密码加盐哈希
-        String hash = PasswordEncoderUtil.hash(req.getPassword());
-        u.setPassword(hash);
+        u.setPassword(req.getPassword());
 
         userMapper.insert(u);
     }
@@ -44,7 +41,7 @@ public class UserServiceImpl implements UserService {
     public String login(LoginRequest req) {
         User u = userMapper.selectOne(
                 new QueryWrapper<User>().eq("username", req.getUsername()));
-        if (u == null || !PasswordEncoderUtil.matches(req.getPassword(), u.getPassword())) {
+        if (u == null || !req.getPassword().equals(u.getPassword())) {
             throw new BusinessException("用户名或密码错误");
         }
         // 生成 JWT，载荷可放 userId、username
