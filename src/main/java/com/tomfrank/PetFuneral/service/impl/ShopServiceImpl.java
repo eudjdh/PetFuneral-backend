@@ -1,6 +1,5 @@
 package com.tomfrank.PetFuneral.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.tomfrank.PetFuneral.dto.*;
 import com.tomfrank.PetFuneral.entity.Product;
 import com.tomfrank.PetFuneral.exception.BusinessException;
@@ -8,7 +7,6 @@ import com.tomfrank.PetFuneral.mapper.ProductMapper;
 import com.tomfrank.PetFuneral.service.ShopService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.beans.BeanUtils;
 
 @Service
 public class ShopServiceImpl implements ShopService {

@@ -10,12 +10,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pet {
-    private Integer petID;
-    private Integer userID;
+    private Integer petId;
+    private Integer userId;
     private String name;
     private String species;
     private String breed;
     private Date birthDate;
     private Date deathDate;
-    private String photoURL;
+    private String photoUrl;
 }
