@@ -13,6 +13,6 @@ public class OrderProduct {
     private Integer orderProductId;
     private Integer productId;
     private Integer quantity;
-    private BigDecimal price;
+    private BigDecimal priceAtPurchase;
     private int userId;
 }
