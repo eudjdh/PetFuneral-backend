@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/service")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://49.232.9.128")
 public class PreserveController {
     private final PreserveService preserveService;
     private final JwtUtil jwtUtil;

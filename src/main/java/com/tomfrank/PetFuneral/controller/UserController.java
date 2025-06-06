@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://49.232.9.128")
 public class UserController {
     private final UserService userService;
     private final JwtUtil jwtUtil; // 1. 声明jwtUtil为成员变量

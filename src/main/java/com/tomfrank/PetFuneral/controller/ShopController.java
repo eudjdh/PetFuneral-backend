@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @RestController
 @RequestMapping("/api/shop")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://49.232.9.128")
 public class ShopController {
 
     private final ShopService shopService;
